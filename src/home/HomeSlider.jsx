@@ -7,12 +7,12 @@ import 'swiper/css/pagination';
 
 function HomeSlider() {
   const slides = sliderData.map((slideInfo, index) => {
-    const { source, style, alt, url } = slideInfo;
+    const { source, alt, url } = slideInfo;
     return (
       <SwiperSlide key={index}>
         <a href={url} rel="noreferrer" target="_blank" className='max-h-2vh'>
           <img
-            className={`${style} transition-transform duration-300 hover:scale-105`}
+            className={`w-10 transition-transform duration-300 hover:scale-105`}
             src={source}
             alt={alt}
           />

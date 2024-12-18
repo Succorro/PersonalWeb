@@ -3,17 +3,30 @@ const projectsData = [
     id: 1,
     skills: [
       {name: "React", color: "#7dd3fc"},
+      {name: "Python", color: "#FCD34D"},
+      {name: "DJango", color: "#022C22"},
+    ],
+    name: "WeVote",
+    description:
+      "A non-profit dedicated to sharing political information and empowering voters through voter literacy",
+    image: "/WeVoteWideBrand.png",
+    link: "https://www.wevote.us"
+  },
+  {
+    id: 2,
+    skills: [
+      {name: "React", color: "#7dd3fc"},
       {name: "Cloud Flare", color: "#fb923c"},
       {name: "TailwindCSS", color: "#0ea5e9"},
     ],
     name: "Luna and Associates",
     description:
-      "This site aims to provide comprehensive legal services and representation to clients in need.",
+      "This site provides a comprehensive legal services and representation for clients.",
     image: "/L&A.jpg",
     link: "https://www.lunalawgroup.com"
   },
   {
-    id: 2,
+    id: 3,
     skills: [
       {name: "React", color: "#7dd3fc"},
       {name: "GCP", color: "#4ade80"},
@@ -25,7 +38,7 @@ const projectsData = [
     link: "https://rentabin247.com/"
   },
   {
-    id: 3,
+    id: 4,
     skills: [
       {name: "React", color: "#7dd3fc"},
       {name: "Ruby on Rails", color: "#dc2626"},

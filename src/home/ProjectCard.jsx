@@ -2,7 +2,7 @@ import React from "react";
 import SkillTag from "./SkillTag";
 import { Link } from "react-router-dom";
 
-function ProjectCard({ name, image, skills, link }) {
+function ProjectCard({ name, image, skills, link, description }) {
   return (
     <Link
       to={link}
@@ -12,11 +12,10 @@ function ProjectCard({ name, image, skills, link }) {
         <div className="flex flex-col gap-4">
           {/* Image container with animated skills overlay */}
           <div className="relative overflow-hidden rounded-xl">
-            {/* Image with hover zoom effect */}
             <img
               src={image}
               alt={name}
-              className="w-full h-[250px] object-cover "
+              className="w-full h-[250px] object-contain lg:object-cover "
             />
 
             {/* Skills overlay with slide-up animation */}
@@ -60,6 +59,7 @@ function ProjectCard({ name, image, skills, link }) {
         ">
             {name}
           </h3>
+          <p className="font-small text-zinc-700">{description}</p>
         </div>
       </article>
     </Link>

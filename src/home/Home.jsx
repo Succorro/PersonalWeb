@@ -7,6 +7,7 @@ import HomeSlider from "./HomeSlider";
 import AboutModal from "./AboutModal";
 
 import projectsData from "../data/projectsData";
+import HomeGrid from "./HomeGrid";
 
 export const Home = () => {
   const [isAboutOpen, setIsAboutOpen] = React.useState(false);
@@ -14,19 +15,27 @@ export const Home = () => {
   return (
     <div className="">
       {/* Mobile Header - Only visible on mobile */}
-      <div className="lg:hidden sticky top-0 z-40 bg-white border-b border-zinc-200">
-        <div className="p-4">
-          <Header name="Steven Gutierrez" title="Software Engineer" />
+      <div className="lg:hidden flex flex-row justify-center items-end sticky top-0 z-40 bg-white border-b border-zinc-200">
+        <div className="p-2 mr-7">
+          <Header />
+        </div>
+        <div className="flex flex-row gap-4 mb-2">
+          <a href="https://www.linkedin.com/in/soysteven/" target="_blank" rel="noopener noreferrer">
+            <img className="w-7" src="/linkedin.svg" alt="linkedin" />
+          </a>
+          <a href="https://github.com/Succorro" target="_blank" rel="noopener noreferrer">
+            <img className="w-7" src="/github.svg" alt="github" />
+          </a>
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row">
+      <div className="flex flex-col lg:flex-row p-10">
         {/* Sidebar */}
         <aside className="w-full lg:w-[31%] lg:fixed lg:h-screen bg-white">
           <div className="flex flex-col h-full">
             {/* Header - Hidden on mobile, visible on desktop */}
             <div className="hidden lg:block">
-              <Header name="Steven Gutierrez" title="Software Engineer" />
+              <Header />
             </div>
 
             {/* Bio - Hidden on mobile */}
@@ -35,7 +44,7 @@ export const Home = () => {
               solutions that bridge the gap between business needs and user experience.
             </p>
 
-            <div className="flex flex-ro justify-evenly align-center max-lg:mb-10">
+            <div className="hidden lg:flex lg:flex-row justify-evenly align-center max-lg:mb-10">
               <a href="https://www.linkedin.com/in/soysteven/" target="_blank" rel="noopener noreferrer">
                 <img className="w-10" src="/linkedin.svg" alt="linkedin" />
               </a>
@@ -45,11 +54,15 @@ export const Home = () => {
             </div>
             <hr className="hidden lg:block my-8 h-px bg-black/20" />
 
-            {/* Skills slider - Hidden on mobile */}
-            <div className="hidden lg:flex lg:flex-wrap gap-3 text-xs leading-loose text-zinc-900/70">
+            {/* Skills slider - Hidden on desktop */}
+            <div className="lg:hidden flex flex-wrap gap-1 text-xs leading-loose text-zinc-900/70">
               <HomeSlider />
             </div>
 
+            {/* Skills block - Hidden on mobile */}
+            <div className="hidden lg:block h-[40vh]">
+              <HomeGrid />
+            </div>
             {/* Navigation Buttons */}
             <div className="flex gap-4 mt-auto pb-16">
               <button

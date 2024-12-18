@@ -1,11 +1,37 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
+import { useState, useLayoutEffect } from 'react';
 import sliderData from '../data/sliderData';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 
 function HomeSlider() {
+  const [slidesPerViewAmount, setSlidesPerViewAmount] = useState(() => {
+    const width = typeof window !== 'undefined' ? window.innerWidth : 1024;
+    if (width >= 480) return 6;
+    return 4;
+  });
+
+  const updateSlidesPerView = () => {
+    const width = window.innerWidth;
+    if (width >= 480) {
+      setSlidesPerViewAmount(6);
+    } else {
+      setSlidesPerViewAmount(5);
+    }
+  };
+  useLayoutEffect(() => {
+    updateSlidesPerView();
+    const resizeObserver = new ResizeObserver(() => {
+      updateSlidesPerView();
+    });
+    resizeObserver.observe(document.body);
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, []);
+
   const slides = sliderData.map((slideInfo, index) => {
     const { source, alt, url } = slideInfo;
     return (
@@ -23,7 +49,7 @@ function HomeSlider() {
 
   return (
     <Swiper
-      slidesPerView={4}
+      slidesPerView={slidesPerViewAmount}
       speed={2000}
       loop={true}
       autoplay={{
@@ -36,22 +62,18 @@ function HomeSlider() {
       modules={[Autoplay, Pagination]}
       pagination={{ clickable: true }}
       breakpoints={{
-        // when window width is >= 320px
         320: {
           slidesPerView: 2,
           spaceBetween: 5
         },
-        // when window width is >= 480px
         480: {
           slidesPerView: 3,
           spaceBetween: 10
         },
-        // when window width is >= 768px
         768: {
           slidesPerView: 4,
           spaceBetween: 20
         },
-        // when window width is >= 1024px
         1024: {
           slidesPerView: 5,
           spaceBetween: 20

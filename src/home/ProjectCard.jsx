@@ -1,11 +1,12 @@
 import React from "react";
 import SkillTag from "./SkillTag";
-import { Link } from "react-router-dom";
 
 function ProjectCard({ name, image, skills, link, description }) {
   return (
-    <Link
-      to={link}
+    <a
+      href={link}
+      target="_blank"
+      rel="noreferer"
       className="block w-full group"
     >
       <article className="w-full transform transition-all duration-300 hover:-translate-y-1">
@@ -62,8 +63,7 @@ function ProjectCard({ name, image, skills, link, description }) {
           <p className="font-small text-zinc-700">{description}</p>
         </div>
       </article>
-    </Link>
-
+    </a>
   );
 }
 

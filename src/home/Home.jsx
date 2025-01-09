@@ -85,16 +85,21 @@ export const Home = () => {
 
         {/* Main Content */}
         <main className="w-full  lg:ml-[40%] ">
-          <section className="p-0 lg:p-8">
-            <div className="flex flex-col gap-12">
+          <section className="">
+            <div className="flex flex-col">
               {projectsData.map((project, index) => (
                 <div key={project.id}>
                   <ProjectCard {...project} />
                   {index < projectsData.length - 1 && (
-                    <hr className="mt-12 h-px bg-black/20" />
+                    <hr className="my-12 h-px bg-black/20" />
                   )}
                 </div>
               ))}
+
+            </div>
+          </section>
+          <section className="p-0 lg:p-8">
+            <div className="flex flex-col gap-12">
             </div>
           </section>
         </main>
